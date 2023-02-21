@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import View
 from .models import Product
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, UpdateView
 from .forms import CreateProduct
 from django.urls import reverse_lazy
 
@@ -19,9 +19,17 @@ class StoreListView(ListView):
 
 
 class StoreCreateView(CreateView, SuperUserCheck):
-    # model = Product
+    model = Product
     form_class = CreateProduct
     template_name = "storecreate.html"
     success_url = reverse_lazy("store:store")
+
+
+class StoreUpdateView(UpdateView, SuperUserCheck):
+    model = Product
+    form_class = CreateProduct
+    template_name = "storecreate.html"
+    success_url = reverse_lazy("store:store")
+
 
 
