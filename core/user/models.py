@@ -3,4 +3,4 @@ from django.contrib.auth.models import AbstractUser
 
 
 class UserBase(AbstractUser):
-    pass
+    coins = models.IntegerField(default=10000)
