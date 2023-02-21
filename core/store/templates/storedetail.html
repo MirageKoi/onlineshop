@@ -6,5 +6,8 @@
 {{ object.description }}
 {{ object.price }}
 {{ object.quantity }}
+{% if user.is_superuser %}
+<a href="{% url "store:update" slug=object.slug %}">EDIT</a>
+{% endif %}
 
 {% endblock content %}

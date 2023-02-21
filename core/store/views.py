@@ -34,7 +34,7 @@ class StoreUpdateView(UpdateView, SuperUserCheck):
     model = Product
     form_class = CreateProduct
     template_name = "storecreate.html"
-    success_url = reverse_lazy("store:store")
+    success_url = reverse_lazy("store:storelist")
 
 
 
