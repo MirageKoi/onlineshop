@@ -6,6 +6,15 @@
 {{ object.description }}
 {{ object.price }}
 {{ object.quantity }}
+
+<form method="post" action="{% url "purchase:purchase_add" %}">
+{% csrf_token %}
+{{ form.title.as_hidden }}
+{{ form.quant }}
+
+<button type="submit">Send</button>
+</form> 
+
 {% if user.is_superuser %}
 <a href="{% url "store:update" slug=object.slug %}">EDIT</a>
 {% endif %}

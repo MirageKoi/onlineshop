@@ -22,4 +22,5 @@ urlpatterns = [
     path("", include("user.urls", namespace="user")),
     path("store/", include("store.urls", namespace="store")),
     path("", TemplateView.as_view(template_name="base.html"), name="homepage"),
+    path("purchase/", include("purchase.urls", namespace="purchase")),
 ]

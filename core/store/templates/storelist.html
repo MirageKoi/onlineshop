@@ -7,4 +7,6 @@
                 {{ object.price }}
             </div>
         {% endfor %}
-    {% endblock content %}
+    <hr/>
+    <a href="{% url "store:create" %}">Create New</a>
+{% endblock content %}
