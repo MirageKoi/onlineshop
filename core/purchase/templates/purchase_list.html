@@ -3,6 +3,14 @@
 {% block content %}
 {% for object in list %}
 title:{{ object.title }}
-quantity:{{ object.quantity }}<br>
+quantity:{{ object.quantity }}
+pending:{{ object.pending }}
+{% if object.time_difference %}
+<form method="post" action="{% url "purchase:purchase_return" object.id %}">
+    {% csrf_token %}
+<button type="submit">RETURN</button>
+</form>
+{% endif %}
+<br>
 {% endfor %}
 {% endblock content %}

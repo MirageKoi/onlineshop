@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect, HttpRequest
-from .models import PurchaseModel
+from .models import PurchaseModel, ReturnModel
 from .forms import PurchaseForm
 from store.models import Product
 from django.contrib.auth import get_user_model
@@ -36,4 +36,9 @@ def purchaseadd(request: HttpRequest):
         return HttpResponseRedirect(redirect_url)
     
 
-    
+def purchasereturn(request: HttpRequest, id):
+    if request.method == "POST":
+        item = get_object_or_404(PurchaseModel, id=id)
+        _, return_request = ReturnModel.objects.get_or_create(product_return = item)
+        redirect_url = reverse_lazy("purchase:purchase_list")
+        return HttpResponseRedirect(redirect_url)

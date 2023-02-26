@@ -8,9 +8,6 @@ class PurchaseForm(forms.ModelForm):
     class Meta:
         model = PurchaseModel
         fields = ["title", "quant"]
-        # widgets = {
-        #     "quantity": forms.CharField()
-        #     }
         
 
        
