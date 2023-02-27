@@ -7,7 +7,7 @@ class PurchaseForm(forms.ModelForm):
     quant = forms.IntegerField(initial=0) 
     class Meta:
         model = PurchaseModel
-        fields = ["title", "quant"]
+        fields = ["product", "quant"]
         
 
        

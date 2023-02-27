@@ -7,9 +7,9 @@
 {{ object.price }}
 {{ object.quantity }}
 
-<form method="post" action="{% url "purchase:purchase_add" %}">
+<form method="post" action="{% url "purchase:purchase_add" object.slug %}">
 {% csrf_token %}
-{{ form.title.as_hidden }}
+{{ object }}
 {{ form.quant }}
 
 <button type="submit">Send</button>

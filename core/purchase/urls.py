@@ -5,6 +5,8 @@ app_name = "purchase"
 
 urlpatterns = [
     path("", views.purchaselist, name="purchase_list"),
-    path("add/", views.purchaseadd, name="purchase_add"),
-    path("return/<int:id>", views.purchasereturn, name="purchase_return"),
+    path("<slug:slug>/add/", views.purchaseadd, name="purchase_add"),
+    path("return/<int:id>", views.purchase_return, name="purchase_return"),
+    path("list/", views.list_returns, name="returns_list"),
+    path("list/accept/<int:id>", views.confirm_return, name="confirm_return"),
 ]

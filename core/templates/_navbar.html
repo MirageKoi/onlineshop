@@ -29,7 +29,9 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-end">
               <li><a class="dropdown-item" href="{% url "purchase:purchase_list" %}">Purchases</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
+              {% if user.is_superuser %}
+              <li><a class="dropdown-item" href="{% url "purchase:returns_list" %}">RETURNS</a></li>
+              {% endif %}
               <li><hr class="dropdown-divider"/></li>
               <li><a class="dropdown-item" href="{% url "user:logout" %}">Logout</a></li>
             </ul>
