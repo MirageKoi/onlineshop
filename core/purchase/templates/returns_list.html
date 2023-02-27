@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for object in list %}
+{{ object.id }}
+{{ object.product_return }}<br>
+<form method="post" action="{% url "purchase:confirm_return" object.id %}">
+    {% csrf_token %}
+<button>Accept</button>
+</form>
+{% endfor %}
+{% endblock content %}
